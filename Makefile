@@ -21,3 +21,7 @@ dashboard/build:
 .PHONY: dashboard/send
 dashboard/send:
 	@cd dashboard && rsync -rP dist nicolas@106.14.126.186:~/petify/react-build-dashboard && cd ..
+
+.PHONY: all-in-one
+all-in-one: frontend/build frontend/send dashboard/build dashboard/send
+	echo finished
